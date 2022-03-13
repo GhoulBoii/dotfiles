@@ -1,0 +1,35 @@
+# Increase volume
+"pactl set-sink-volume @DEFAULT_SINK@ +10%"
+   XF86AudioRaiseVolume
+
+# Decrease volume
+"pactl set-sink-volume @DEFAULT_SINK@ -10%"
+   XF86AudioLowerVolume
+
+# Mute volume
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+   XF86AudioMute
+
+# Mute microphone
+"pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+   XF86AudioMicMute
+
+# Play/Pause Audio
+"playerctl play-pause"
+   XF86AudioPlay
+
+# Flameshot for screenshots
+"flameshot gui"
+	Shift+Mod4 + S
+
+# Flameshot for screenshots
+"flameshot gui"
+    Print
+
+# Audio Next
+"playerctl next"
+  XF86AudioNext
+
+# Audio Previous
+"playerctl previous"
+  XF86AudioPrev

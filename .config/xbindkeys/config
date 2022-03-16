@@ -19,11 +19,11 @@
    XF86AudioPlay
 
 # Flameshot for screenshots
-"flameshot gui"
+"org.flameshot.Flameshot gui"
 	Shift+Mod4 + S
 
 # Flameshot for screenshots
-"flameshot gui"
+"org.flameshot.Flameshot gui"
     Print
 
 # Audio Next

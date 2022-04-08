@@ -20,7 +20,7 @@ alias \
 	bc="bc -ql" \
 	mkd="mkdir -pv" \
 	ffmpeg="ffmpeg -hide_banner" \
-	wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts" \ 
+	wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"  
 
 # Colorize commands when possible.
 alias \
@@ -43,7 +43,7 @@ alias \
 	xr="sudo xbps-remove -R" \
 	xq="xbps-query" \
 	z="zathura" \
-#	purge="sudo pacman -Rns $(pacman -Qtdq)" \ 
+	purge="pacman -Qtdq | pacman -Rns -"
 
 alias \
 	magit="nvim -c MagitOnly" \

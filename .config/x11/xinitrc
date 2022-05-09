@@ -1,9 +1,14 @@
-/usr/bin/prime-offload
-xrandr --output HDMI-0 --mode 1366x768 --primary --output LVDS-1-1 --mode 1366x768 --right-of HDMI-0 --output VGA-0 --off
+xrandr --output HDMI-0 --mode 1440x900 --primary --output LVDS-1-1 --mode 1366x768 --right-of HDMI-0 --output VGA-0 --off
 xbindkeys -f ~/.config/xbindkeys/config &
-clock &
-flameshot &
-xinput --set-prop 17 'libinput Accel Profile Enabled' 0, 1 &
-xwallpaper --maximize $XDG_CONFIG_HOME/wal/wallhaven-od6mq7_1366x768.png &
+org.flameshot.Flameshot &
+xinput --set-prop "  CB Gaming" 'libinput Accel Profile Enabled' 0, 1 &
+xinput --set-prop "SynPS/2 Synaptics TouchPad" 369 0 &
+wal -i ~/.config/wal/ &
 xcompmgr &
-exec ~/.local/bin/dwmrestart 
+dwmblocks &
+dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
+com.github.wwmm.easyeffects --gapplication-service &
+/usr/bin/emacs --daemon &
+while true :; do
+  ssh-agent dwm
+done

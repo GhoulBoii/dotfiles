@@ -16,9 +16,9 @@ alias \
 	sudo='sudo ' \
 	cp="cp -iv" \
 	mv="mv -iv" \
-	rm="rm -vI" \
+	rm='echo "This is not the command you are looking for."; false' \
 	bc="bc -ql" \
-	mkd="mkdir -pv" \
+	mkdir="mkdir -pv" \
 	ffmpeg="ffmpeg -hide_banner" \
 	wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"  
 
@@ -26,27 +26,17 @@ alias \
 alias \
 	ls="ls -ahN --color=auto --group-directories-first" \
 	grep="grep --color=auto" \
-	diff="diff --color=auto" \
-	ccat="highlight --out-format=ansi"
+	diff="diff --color=auto" 
 
 # These common commands are just too long! Abbreviate them.
 alias \
-	ka="killall" \
-	g="git" \
+    ka="killall" \
+    emacs="emacsclient -c -a 'emacs' " \
 	trem="transmission-remote" \
 	YT="youtube-viewer" \
-	sdn="shutdown -h now" \
-	e="$EDITOR" \
-	v="$EDITOR" \
-	p="pacman" \
-	xi="sudo xbps-install" \
-	xr="sudo xbps-remove -R" \
-	xq="xbps-query" \
-	z="zathura" \
-	purge="pacman -Qtdq | pacman -Rns -"
+	sdn="shutdown -h now"  \
+    d="devour "
 
 alias \
-	magit="nvim -c MagitOnly" \
-	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
-	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
-	config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+	config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" \
+	purge="pacman -Qtdq | pacman -Rns -"

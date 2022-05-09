@@ -1,0 +1,14 @@
+/* Dark theme. */
+@import "~/.cache/wal/colors-rofi-dark"
+
+/* Light theme. */
+@import "~/.cache/wal/colors-rofi-light"
+
+configuration {
+  combi-modes: "window,run,ssh";
+  mode: "run";
+  modi: "window,run,ssh,combi";
+//  icon-theme: "Hack Nerd Font";
+  show-icons: true;
+  show: "combi";
+}

@@ -9,13 +9,14 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'Yggdroot/indentLine'
     Plug 'mbbill/undotree'
     Plug 'tpope/vim-commentary'
+    Plug 'dylanaraps/wal.vim'
 call plug#end()
-
 " Neovim Configuration
 let g:mapleader = "\<Space>"
 
 syntax enable                           " Enables syntax highlighing
 set hidden                              " Required to keep multiple buffers open multiple buffers
+colorscheme wal
 set noshowmode                          " We don't need to see things like -- INSERT -- anymore
 set nowrap                              " Display long lines as just one line
 set encoding=utf-8                      " The encoding displayed
@@ -39,5 +40,6 @@ set timeoutlen=500                      " By default timeoutlen is 1000 ms
 set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 
+au! BufWritePost $MYVIMRC source %
 cmap w!! w !sudo tee %
 source $HOME/.config/nvim/keys/mappings.vim

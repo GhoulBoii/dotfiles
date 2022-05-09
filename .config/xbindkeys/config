@@ -1,13 +1,13 @@
 # Increase volume
-"pactl set-sink-volume @DEFAULT_SINK@ +10%"
+"pactl set-sink-volume @DEFAULT_SINK@ +10%; kill -59 $(pidof dwmblocks)"
    XF86AudioRaiseVolume
 
 # Decrease volume
-"pactl set-sink-volume @DEFAULT_SINK@ -10%"
+"pactl set-sink-volume @DEFAULT_SINK@ -10%; kill -59 $(pidof dwmblocks)"
    XF86AudioLowerVolume
 
 # Mute volume
-"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+"pactl set-sink-mute @DEFAULT_SINK@ toggle; kill -59 $(pidof dwmblocks)"
    XF86AudioMute
 
 # Mute microphone
@@ -20,10 +20,6 @@
 
 # Flameshot for screenshots
 "org.flameshot.Flameshot gui"
-	Shift+Mod4 + S
-
-# Flameshot for screenshots
-"org.flameshot.Flameshot gui"
     Print
 
 # Audio Next
@@ -33,3 +29,4 @@
 # Audio Previous
 "playerctl previous"
   XF86AudioPrev
+

@@ -3,7 +3,7 @@ xbindkeys -f ~/.config/xbindkeys/config &
 org.flameshot.Flameshot &
 xinput --set-prop "  CB Gaming" 'libinput Accel Profile Enabled' 0, 1 &
 xinput --set-prop "SynPS/2 Synaptics TouchPad" 369 0 &
-wal -i ~/.config/wal/ &
+set-wallpaper &
 xcompmgr &
 dwmblocks &
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &

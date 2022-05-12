@@ -39,4 +39,5 @@ alias \
 
 alias \
 	config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" \
-	purge="pacman -Qtdq | pacman -Rns -"
+	purge="pacman -Qtdq | pacman -Rns -" \
+    upgrade="yay;flatpak update"

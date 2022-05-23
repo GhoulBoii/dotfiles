@@ -30,3 +30,6 @@
 "playerctl previous"
   XF86AudioPrev
 
+# Btop
+"wezterm start -- btop"
+  Control+Shift+Escape

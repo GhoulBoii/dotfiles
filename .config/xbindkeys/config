@@ -1,26 +1,26 @@
+#################
+# XF86 Keybinds #
+################# 
+
 # Increase volume
 "pactl set-sink-volume @DEFAULT_SINK@ +10%; kill -59 $(pidof dwmblocks)"
-   XF86AudioRaiseVolume
+  XF86AudioRaiseVolume
 
 # Decrease volume
 "pactl set-sink-volume @DEFAULT_SINK@ -10%; kill -59 $(pidof dwmblocks)"
-   XF86AudioLowerVolume
+  XF86AudioLowerVolume
 
 # Mute volume
 "pactl set-sink-mute @DEFAULT_SINK@ toggle; kill -59 $(pidof dwmblocks)"
-   XF86AudioMute
+  XF86AudioMute
 
 # Mute microphone
 "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-   XF86AudioMicMute
+  XF86AudioMicMute
 
 # Play/Pause Audio
 "playerctl play-pause"
-   XF86AudioPlay
-
-# Flameshot for screenshots
-"org.flameshot.Flameshot gui"
-    Print
+  XF86AudioPlay
 
 # Audio Next
 "playerctl next"
@@ -30,6 +30,46 @@
 "playerctl previous"
   XF86AudioPrev
 
+######################
+# Launching Programs #
+######################
+
+# Slip for screenshots
+"slip --screenshot"
+  Print
+
+# Slip for recording videos
+"slip --record"
+  Control+Print
+  
+# Slip for recording gifs
+"slip --gif"
+  Print
+
 # Btop
 "wezterm start -- btop"
   Control+Shift+Escape
+
+# Emacs
+"emacsclient -c -a 'emacs' " 
+  Mod4+b
+
+# Changing Wallpaper
+"set-wallpaper"
+  Mod4+F5
+
+################
+# Push To Talk #
+################
+
+# Unmuting Microphone
+# "xset -r 77; pactl set-source-mute @DEFAULT_SOURCE@ 0"
+#   c:77
+
+# # Muting Microphone
+# "xset -r 77; pactl set-source-mute @DEFAULT_SOURCE@ 1"
+#   release+c:77
+
+# # Toggling Muting and Unmuting 
+# "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+#   control+c:77

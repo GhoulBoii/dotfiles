@@ -10,5 +10,5 @@ dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XA
 com.github.wwmm.easyeffects --gapplication-service &
 /usr/bin/emacs --daemon &
 while true :; do
-  ssh-agent dwm
+  dwm
 done

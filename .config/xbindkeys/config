@@ -35,16 +35,16 @@
 ######################
 
 # Slip for screenshots
-"slip --screenshot"
+"org.flameshot.Flameshot gui"
   Print
 
 # Slip for recording videos
-"slip --record"
-  Control+Print
+"slip --gif"
+  Shift+Print
   
 # Slip for recording gifs
-"slip --gif"
-  Print
+"slip --record"
+  Control+Shift+Print
 
 # Btop
 "wezterm start -- btop"

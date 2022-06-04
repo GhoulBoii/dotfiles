@@ -8,7 +8,6 @@ xcompmgr &
 dwmblocks &
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY &
 com.github.wwmm.easyeffects --gapplication-service &
-/usr/bin/emacs --daemon &
 while true :; do
   dwm
 done

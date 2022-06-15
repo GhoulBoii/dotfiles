@@ -5,9 +5,9 @@
 @import "~/.cache/wal/colors-rofi-light"
 
 configuration {
-  combi-modes: "run,ssh";
-  mode: "run";
-  modi: "run,ssh,combi";
+  combi-modes: "drun,ssh";
+  mode: "drun";
+  modi: "drun,ssh,combi";
 //  icon-theme: "Hack Nerd Font";
   show-icons: true;
   show: "combi";

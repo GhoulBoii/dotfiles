@@ -7,11 +7,10 @@
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
 
 # sudo not required for some system commands
-for command in mount umount sv pacman updatedb su shutdown poweroff reboot ; do
+for command in mount umount su poweroff reboot ; do
 	alias $command="sudo $command"
 done; unset command
 
-# Verbosity and settings that you pretty much just always are going to want.
 alias \
 	sudo='sudo ' \
 	cp="cp -iv" \
@@ -20,25 +19,27 @@ alias \
 	bc="bc -ql" \
 	mkdir="mkdir -pv" \
 	ffmpeg="ffmpeg -hide_banner" \
-	wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"  
-
-# Colorize commands when possible.
-alias \
+	wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts" \
 	ls="ls -ahN --color=auto --group-directories-first" \
 	grep="grep --color=auto" \
-	diff="diff --color=auto" 
-
-# These common commands are just too long! Abbreviate them.
-alias \
+	diff="diff --color=auto" \
   ka="killall" \
 	trem="transmission-remote" \
-	YT="youtube-viewer" \
-	sdn="shutdown -h now"  \
   d="devour " \
-  ranger="ranger && (cat ~/.cache/wal/sequences &) "
-
-alias \
+  newsboat="newsboat && cat ~/.cache/wal/sequences" \
 	config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" \
 	purge="pacman -Qtdq | pacman -Rns -" \
-  upgrade="yay;flatpak update"
-  
+  upgrade="yay; flatpak update"
+
+alias \
+  g="git " \
+  gst="git status" \
+  gaa="git add " \
+  gcm="git commit -m " \
+  gpu="git push origin " \
+  gcb="git checkout -b " \
+  gsw="git switch " \
+  gpl="git pull origin " \
+  glog="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'" 
+
+

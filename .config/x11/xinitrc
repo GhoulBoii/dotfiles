@@ -10,8 +10,7 @@ xinput --set-prop "SynPS/2 Synaptics TouchPad" 369 0
 xbindkeys -f ~/.config/xbindkeys/config &
 org.flameshot.Flameshot &
 set-wallpaper &
-picom -b --experimental-backend --vsync
-dwmblocks &
+xcompmgr &
 
 ###################
 #   Flatpak Fix   #
@@ -19,7 +18,14 @@ dwmblocks &
 
 dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY 
 
-while true :; do
-  dwm
-done
-#exec startxfce4
+###################
+#   Xorg Server   #
+###################
+
+session=${1:-dwm}
+
+case $session in
+    dwm               ) dwm-restart.sh;;
+    xfce|xfce4        ) exec startxfce4;;
+    *                 ) exec $1;;
+esac

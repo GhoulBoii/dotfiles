@@ -1,6 +1,6 @@
-#################
-# XF86 Keybinds #
-################# 
+####################
+#   XF86 Keybinds  #
+####################
 
 # Increase volume
 "pactl set-sink-volume @DEFAULT_SINK@ +10%; kill -59 $(pidof dwmblocks)"
@@ -14,10 +14,6 @@
 "pactl set-sink-mute @DEFAULT_SINK@ toggle; kill -59 $(pidof dwmblocks)"
   XF86AudioMute
 
-# Mute microphone
-"pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-  XF86AudioMicMute
-
 # Play/Pause Audio
 "playerctl play-pause"
   XF86AudioPlay
@@ -30,37 +26,33 @@
 "playerctl previous"
   XF86AudioPrev
 
-######################
-# Launching Programs #
-######################
+#########################
+#  Launching Programs   #
+#########################
 
 # Slip for screenshots
 "org.flameshot.Flameshot gui"
   Print
 
-# Slip for recording videos
-"slip --gif"
-  Shift+Print
-  
-# Slip for recording gifs
-"slip --record"
-  Control+Shift+Print
-
 # Btop
 "wezterm start -- btop"
   Control+Shift+Escape
 
-# Emacs
-"emacsclient -c -a 'emacs' " 
+# nvim
+"wezterm start -- nvim" 
   Mod4+b
 
 # Changing Wallpaper
 "set-wallpaper"
   Mod4+F5
 
-################
-# Push To Talk #
-################
+# Rofimoji
+"rofimoji"
+  Mod4+slash
+
+####################
+#   Push To Talk   #
+####################
 
 # Unmuting Microphone
 # "xset -r 77; pactl set-source-mute @DEFAULT_SOURCE@ 0"

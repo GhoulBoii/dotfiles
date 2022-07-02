@@ -2,10 +2,11 @@
 inode/directory=pcmanfm.desktop
 x-scheme-handler/discord-402572971681644545=discord-402572971681644545.desktop
 text/html=org.mozilla.firefox.desktop
-x-scheme-handler/http=xfce4-web-browser.desktop
-x-scheme-handler/https=xfce4-web-browser.desktop
+x-scheme-handler/http=org.mozilla.firefox.desktop
+x-scheme-handler/https=org.mozilla.firefox.desktop
 x-scheme-handler/about=org.mozilla.firefox.desktop
 x-scheme-handler/unknown=org.mozilla.firefox.desktop
+x-scheme-handler/ror2mm=r2modman.desktop
 
 [Added Associations]
 x-scheme-handler/http=xfce4-web-browser.desktop;

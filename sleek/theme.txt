@@ -10,7 +10,7 @@ terminal-height: "100%"
 terminal-border: "0"
 
 +label{
-text="Grub Bootloader"
+text="Hello!"
 font = "Poppins Regular 48"
 color="#5A7AA4"
 left = 50%-200

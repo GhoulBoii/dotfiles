@@ -1,5 +1,6 @@
 auto-reload yes
 browser "$BROWSER %u"
+run-on-startup set-tag
 
 # Keybindings
 
@@ -29,3 +30,6 @@ macro , set browser "com.brave.Browser %u" ; open-in-browser
 
 highlight feedlist "---.*---" default default bold
 highlight feedlist ".*0/0.." default default invis
+
+pager "~/.local/bin/nbparser"
+html-renderer "/bin/cat"

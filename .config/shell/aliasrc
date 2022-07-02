@@ -7,7 +7,7 @@
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
 
 # sudo not required for some system commands
-for command in mount umount su poweroff reboot ; do
+for command in pacman mount umount su poweroff reboot ; do
 	alias $command="sudo $command"
 done; unset command
 
@@ -21,6 +21,7 @@ alias \
 	ffmpeg="ffmpeg -hide_banner" \
 	wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts" \
 	ls="ls -ahN --color=auto --group-directories-first" \
+  lf="lf-ueberzug" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
   ka="killall" \
@@ -29,7 +30,7 @@ alias \
   newsboat="newsboat && cat ~/.cache/wal/sequences" \
 	config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME" \
 	purge="pacman -Qtdq | pacman -Rns -" \
-  upgrade="yay; flatpak update"
+  upgrade="paru; flatpak update"
 
 alias \
   g="git " \

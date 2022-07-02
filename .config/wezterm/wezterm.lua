@@ -10,7 +10,7 @@ wezterm.on("toggle-opacity", function(window, pane)
 end)
 
 return {
-  font = wezterm.font("Hack Nerd Font"),
+  font = wezterm.font("FiraCode Nerd Font Mono"),
   hide_tab_bar_if_only_one_tab = true,
   window_background_opacity = 0.8,
   keys = {

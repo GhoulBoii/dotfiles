@@ -1,0 +1,8 @@
+'/home/ghoul/.config/wal/cyberpunkcar.png\'#0D122D#1B3057#2B4BB6#CD93E3#1AC0E7
+'/home/ghoul/.config/wal/rainbow-arch.png\'#302D41#6E86A6#C7C7D2#554760
+'/home/ghoul/.config/wal/tanjaro.png\'#2E070F#58111E#712A49#0C0203#9D2E3B
+'/home/ghoul/.config/wal/darth_vader.jpg\'#0E0101#2F0402#510803#9A1A13#2F2A13
+'/home/ghoul/.config/wal/gta.png\'#83667E#E2C4B7#F3DEC9#3F2B4D#140F23
+'/home/ghoul/.config/wal/planet.png\'#060514#260E29#EE34B5#FD704F#4B1549
+'/home/ghoul/.config/wal/tokyoghoul1.jpg\'#000000#7D7C81#D1D0CF#524F54#2A282B
+'/home/ghoul/.config/wal/tokyoghoul2.jpg\'#21242C#0D0C11#363E4A#4D5C68#79929F

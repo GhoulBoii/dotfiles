@@ -28,6 +28,7 @@ session=dwm
 
 case $session in
     dwm               ) dwm-restart.sh;;
+    steam             ) steam -bigpicture;;
     xfce|xfce4        ) exec startxfce4;;
     awesome           ) exec awesome;;
     *                 ) exec $1;;

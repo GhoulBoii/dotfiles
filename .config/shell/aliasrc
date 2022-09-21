@@ -30,7 +30,6 @@ alias \
   ka="killall" \
   newsboat="newsboat && cat ~/.cache/wal/sequences" \
 	config="/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME" \
-  ssh="ssh -i $XDG_CONFIG_HOME/ssh/id_ed25519 -o UserKnownHostsFile=$XDG_DATA_HOME/ssh/known_hosts"
 	purge="pacman -Qtdq | pacman -Rns -" \
   upgrade="paru; flatpak update"
 

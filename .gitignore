@@ -9,7 +9,9 @@
 !.config/dunst
 !.config/dunst/dunstrc
 !.config/easyeffects
+!.config/easyeffects/input
 !.config/easyeffects/input/CondensorMic.json
+!.config/easyeffects/output
 !.config/easyeffects/output/Earphones.json
 !.config/feh
 !.config/feh/themes
@@ -50,6 +52,7 @@
 !.config/zsh/*
 !.config/user-dirs.dirs
 !.local
+!.local/bin
 !.local/bin/statusbar
 !.local/bin/statusbar/*
 !.local/bin/dwm-restart.sh

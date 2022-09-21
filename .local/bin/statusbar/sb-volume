@@ -1,0 +1,18 @@
+#!/bin/sh
+# Prints the current volume or 🔇 if muted.
+
+[ $(pactl get-sink-mute @DEFAULT_SINK@ | gawk '{print $2}') = yes ] && echo 🔇 && exit
+
+vol="$(pactl get-sink-volume @DEFAULT_SINK@ | gawk '{print $5}' | sed 's/.$//')"
+
+if [ "$vol" -gt "70" ]; then
+	icon="🔊"
+elif [ "$vol" -gt "30" ]; then
+	icon="🔉"
+elif [ "$vol" -gt "0" ]; then
+	icon="🔈"
+else
+        echo 🔇 && exit
+fi
+
+echo "$icon $vol%"

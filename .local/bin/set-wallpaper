@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# wal -c
+wal -i ~/.config/wal
+xdotool key super+shift+F5

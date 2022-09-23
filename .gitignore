@@ -59,3 +59,5 @@
 !.local/bin/lfub
 !.local/bin/monitor_layout.sh
 !.local/bin/set-wallpaper
+!etc
+!etc/**

@@ -39,6 +39,7 @@ export WEECHAT_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/weechat"
 export MBSYNCRC="${XDG_CONFIG_HOME:-$HOME/.config}/mbsync/config"
 export ELECTRUMDIR="${XDG_DATA_HOME:-$HOME/.local/share}/electrum"
 export _JAVA_OPTIONS="-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java"
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 
 # Other program settings:
 export DICS="/usr/share/stardict/dic/"

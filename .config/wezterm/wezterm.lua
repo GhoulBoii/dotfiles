@@ -12,6 +12,7 @@ end)
 return {
   font = wezterm.font("FiraCode Nerd Font"),
   font_size = 14.0,
+  warn_about_missing_glyphs = false,
   hide_tab_bar_if_only_one_tab = true,
   window_background_opacity = 0.8,
   keys = {

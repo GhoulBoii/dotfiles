@@ -1,4 +1,5 @@
 #!/bin/sh
+xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --output HDMI-0 --mode 1440x900 --primary --output LVDS-1-1 --mode 1366x768 --right-of HDMI-0 --output VGA-0 --off
 xinput --set-prop "  CB Gaming" 'libinput Accel Profile Enabled' 0, 1 
 xinput --set-prop "SynPS/2 Synaptics TouchPad" 369 0 

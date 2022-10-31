@@ -7,7 +7,7 @@
 configuration {
   combi-modes: "drun,ssh";
   mode: "drun";
-  modi: "drun,ssh,combi";
+  modi: "drun,ssh,combi,emoji";
 //  icon-theme: "Hack Nerd Font";
   show-icons: true;
   show: "combi";

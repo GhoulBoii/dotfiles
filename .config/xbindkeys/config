@@ -46,8 +46,8 @@
 "set-wallpaper"
   Mod4+F5
 
-# Rofimoji
-"rofimoji -a copy"
+# Dmenumoji
+"dmenumoji"
   Mod4+slash
 
 ####################

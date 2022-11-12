@@ -10,7 +10,7 @@ local options = {
 	server = "https://sponsor.ajay.app/api/skipSegments",
 
 	-- Categories to fetch and skip
-	categories = '"sponsor"',
+	categories = '"sponsor","outro","interaction","selfpromo","music_offtopic","intro","preview"',
 
 	-- Set this to "true" to use sha256HashPrefix instead of videoID
 	hash = ""

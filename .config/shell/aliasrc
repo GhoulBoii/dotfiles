@@ -32,6 +32,7 @@ alias \
 
 alias \
   zathura="devour zathura" \
+  newsboat="newsboat -u /mnt/games/urls" \
   mpv="devour mpv" \
   libreoffice="devour libreoffice"
 

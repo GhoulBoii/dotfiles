@@ -27,13 +27,8 @@
 !.config/legendary/config.ini
 !.config/lf
 !.config/lf/*
-!.config/mopidy
-!.config/mopidy/mopidy.conf
 !.config/mpv
 !.config/mpv/**
-!.config/ncmpcpp
-!.config/ncmpcpp/bindings
-!.config/ncmpcpp/config
 !.config/neofetch
 !.config/neofetch/config.conf
 !.config/newsboat

@@ -35,7 +35,7 @@
   Print
 
 # Changing Wallpaper
-"set-wallpaper"
+"set-wallpaper.sh"
   Mod4+F5
 
 # Dmenumoji

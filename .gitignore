@@ -63,10 +63,11 @@
 !.local/bin/statusbar
 !.local/bin/statusbar/*
 !.local/bin/dmenumoji.sh
+!.local/bin/dmenu_power.sh
 !.local/bin/dwm-restart.sh
 !.local/bin/lfub
 !.local/bin/monitor_layout.sh
-!.local/bin/set-wallpaper
+!.local/bin/set-wallpaper.sh
 !.local/share
 !.local/share/char
 !.local/share/char/*

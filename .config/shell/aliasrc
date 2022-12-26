@@ -12,7 +12,7 @@ for command in pacman mount umount su poweroff reboot ; do
 done; unset command
 
 alias \
-	ls="ls -ahN --color=auto --group-directories-first" \
+	ls="exa -a --color=auto --group-directories-first" \
   ip='ip -color=auto' \
   cat='bat --theme="Visual Studio Dark+"' \
 	grep="rg --color=auto" \
@@ -28,7 +28,7 @@ alias \
   lf="lfub" \
   ka="killall" \
 	config="/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME" \
-	purge="pacman -Qtdq | pacman -Rns -"
+	purge="pacman -Qtdq | pacman -Rsunc -"
 
 alias \
   zathura="devour zathura" \

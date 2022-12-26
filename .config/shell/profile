@@ -8,7 +8,7 @@ unsetopt PROMPT_SP
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="firefox"
+export BROWSER="brave"
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -57,8 +57,7 @@ export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export QT_QPA_PLATFORMTHEME="qt6ct"	# Have QT use gtk2 theme.
-export GTK_THEME=Adwaita:dark
-export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
+export GTK_THEME="Catppuccin-Mocha-Standard-Blue-Dark"
 export AWT_TOOLKIT="MToolkit wmname LG3D"	#May have to install wmname
 
 # This is the list for lf icons:

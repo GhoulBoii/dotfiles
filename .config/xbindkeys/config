@@ -30,41 +30,17 @@
 #  Launching Programs   #
 #########################
 
-# Slip for screenshots
-"flameshot gui"
+# Scrot for screenshots
+"scrot -f -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'"
   Print
-
-# Btop
-"wezterm start -- btop"
-  Control+Shift+Escape
-
-# nvim
-"wezterm start -- nvim" 
-  Mod4+b
 
 # Changing Wallpaper
 "set-wallpaper"
   Mod4+F5
 
 # Dmenumoji
-"dmenumoji"
+"dmenumoji.sh"
   Mod4+slash
-
-####################
-#   Push To Talk   #
-####################
-
-# Unmuting Microphone
-# "xset -r 77; pactl set-source-mute @DEFAULT_SOURCE@ 0"
-#   c:77
-
-# # Muting Microphone
-# "xset -r 77; pactl set-source-mute @DEFAULT_SOURCE@ 1"
-#   release+c:77
-
-# # Toggling Muting and Unmuting 
-# "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-#   control+c:77
 
 "echo -n | xsel -n -i; pkill xbindkeys; xdotool click 2; xbindkeys -f ~/.config/xbindkeys/config"
   b:2 + Release

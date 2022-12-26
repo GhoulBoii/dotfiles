@@ -46,9 +46,9 @@ cmd delete ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	printf "%s\n\t" "$fx"
-	printf "delete?[y/N]"
+	printf "Trash? [y/N]"
 	read ans
-	[ $ans = "y" ] && rm -rf -- $fx
+	[ $ans = "y" ] && trash-put $fx
 }}
 
 cmd moveto ${{
@@ -80,7 +80,7 @@ cmd bulkrename $vidir
 map <c-f> $lf -remote "send $id select \"$(fzf)\""
 map gh
 map g top
-map D delete
+map d delete
 map E extract
 map C copyto
 map M moveto

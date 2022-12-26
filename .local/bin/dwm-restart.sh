@@ -1,5 +1,5 @@
 #!/bin/sh
 dwmblocks &
 while true :; do
-  dwm
+  dbus-launch dwm
 done

@@ -7,7 +7,7 @@ local opt = require 'mp.options'
 local utils = require 'mp.utils'
 
 local options = {
-	server = "https://sponsor.ajay.app/api/skipSegments",
+	server = "https://sponsorblock.hankmccord.dev/api/skipSegments",
 
 	-- Categories to fetch and skip
 	categories = '"sponsor","outro","interaction","selfpromo","music_offtopic","intro","preview"',

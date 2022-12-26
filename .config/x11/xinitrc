@@ -1,36 +1,26 @@
-#!/bin/sh
-xrandr --setprovideroutputsource modesetting NVIDIA-0
+#!/bin/env sh
 xrandr --output HDMI-0 --mode 1440x900 --primary --output LVDS-1-1 --mode 1366x768 --right-of HDMI-0 --output VGA-0 --off
 xinput --set-prop "  CB Gaming" 'libinput Accel Profile Enabled' 0, 1 
 xinput --set-prop "SynPS/2 Synaptics TouchPad" 369 0 
-sudo rfkill block wlan
+xset -dpms
 
 #################
 #   Autostart   #
 #################
 
-xbindkeys -f ~/.config/xbindkeys/config &
-mopidy &
-flameshot &
 set-wallpaper &
 easyeffects --gapplication-service &
-
-###################
-#   Flatpak Fix   #
-###################
-
-dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+unclutter &
+picom -b 
+xbindkeys -f ~/.config/xbindkeys/config 
 
 ###################
 #   Xorg Server   #
 ###################
 
 session=dwm
-
 case $session in
     dwm               ) dwm-restart.sh;;
-    steam             ) steam -bigpicture;;
-    xfce|xfce4        ) exec startxfce4;;
-    awesome           ) exec awesome;;
-    *                 ) exec $1;;
+    awesome           ) exec dbus-launch awesome;;
+    *                 ) exec dbus-launch $1;;
 esac

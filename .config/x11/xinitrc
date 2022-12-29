@@ -8,7 +8,7 @@ xset -dpms
 #   Autostart   #
 #################
 
-set-wallpaper &
+set-wallpaper.sh &
 easyeffects --gapplication-service &
 unclutter &
 picom -b 

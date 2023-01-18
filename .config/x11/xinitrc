@@ -8,11 +8,12 @@ xset -dpms
 #   Autostart   #
 #################
 
-set-wallpaper.sh &
+set-wallpaper.sh
 easyeffects --gapplication-service &
 unclutter &
-picom -b 
-xbindkeys -f ~/.config/xbindkeys/config 
+picom -b
+xbindkeys -f ~/.config/xbindkeys/config
+mpris-proxy &
 
 ###################
 #   Xorg Server   #

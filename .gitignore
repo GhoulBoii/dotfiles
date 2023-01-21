@@ -62,8 +62,8 @@
 !.local/bin
 !.local/bin/statusbar
 !.local/bin/statusbar/*
-!.local/bin/dmenumoji.sh
 !.local/bin/dmenu_power.sh
+!.local/bin/dmenumoji.sh
 !.local/bin/dwm-restart.sh
 !.local/bin/lfub
 !.local/bin/monitor_layout.sh

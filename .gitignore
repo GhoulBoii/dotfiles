@@ -2,6 +2,8 @@
 !.gitignore
 !.zprofile
 !.config
+!.config/awesome
+!.config/awesome/**
 !.config/bat
 !.config/bat/config
 !.config/btop

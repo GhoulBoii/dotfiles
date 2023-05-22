@@ -1,8 +1,3 @@
----------------------------------------------
--- Awesome theme which follows xrdb config --
---   by Yauhen Kirylau                    --
----------------------------------------------
-
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
@@ -14,7 +9,7 @@ local themes_path = gfs.get_themes_dir()
 local theme = dofile(themes_path.."default/theme.lua")
 -- load vector assets' generators for this theme
 
-theme.font          = "FiraCode Nerd Font 12"
+theme.font          = "FiraCode Nerd Font 14"
 
 theme.bg_normal     = xrdb.background
 theme.bg_focus      = xrdb.color12
@@ -36,48 +31,29 @@ theme.gap_single_client = false
 
 -- extra colors to choose
 theme.color00 = xrdb.color0
-theme.color01 = xrdb.color1 
-theme.color02 = xrdb.color2 
-theme.color03 = xrdb.color3 
-theme.color04 = xrdb.color4 
-theme.color05 = xrdb.color5 
-theme.color06 = xrdb.color6 
+theme.color01 = xrdb.color1
+theme.color02 = xrdb.color2
+theme.color03 = xrdb.color3
+theme.color04 = xrdb.color4
+theme.color05 = xrdb.color5
+theme.color06 = xrdb.color6
 theme.color07 = xrdb.color7
 
-theme.color08 = xrdb.color8 
-theme.color09 = xrdb.color9 
-theme.color10 = xrdb.color10 
-theme.color11 = xrdb.color11 
-theme.color12 = xrdb.color12 
-theme.color13 = xrdb.color13 
-theme.color14 = xrdb.color14 
+theme.color08 = xrdb.color8
+theme.color09 = xrdb.color9
+theme.color10 = xrdb.color10
+theme.color11 = xrdb.color11
+theme.color12 = xrdb.color12
+theme.color13 = xrdb.color13
+theme.color14 = xrdb.color14
 theme.color15 = xrdb.color15
-
--- There are other variable sets
--- overriding the default one when
--- defined, the sets are:
--- taglist_[bg|fg]_[focus|urgent|occupied|empty|volatile]
--- tasklist_[bg|fg]_[focus|urgent]
--- titlebar_[bg|fg]_[normal|focus]
--- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
--- mouse_finder_[color|timeout|animate_timeout|radius|factor]
--- Example:
---theme.taglist_bg_focus = "#ff0000"
 
 theme.tooltip_fg = theme.fg_normal
 theme.tooltip_bg = theme.bg_normal
 
--- Variables set for theming the menu:
--- menu_[bg|fg]_[normal|focus]
--- menu_[border_color|border_width]
 theme.menu_submenu_icon = themes_path.."default/submenu.png"
 theme.menu_height = dpi(16)
 theme.menu_width  = dpi(100)
-
--- You can add as many variables as
--- you wish and access them by using
--- beautiful.variable in your rc.lua
---theme.bg_widget = "#cc0000"
 
 -- Recolor Layout icons:
 theme = theme_assets.recolor_layout(theme, theme.fg_normal)
@@ -117,18 +93,12 @@ theme = theme_assets.recolor_titlebar(
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
 
--- Generate Awesome icon:
-theme.awesome_icon = theme_assets.awesome_icon(
-    theme.menu_height, theme.bg_focus, theme.fg_focus
-)
-
 -- Generate taglist squares:
-local taglist_square_size = dpi(4)
 theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
-    taglist_square_size, theme.fg_normal
+    0, theme.fg_normal
 )
 theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
-    taglist_square_size, theme.fg_normal
+    0, theme.fg_normal
 )
 
 -- Try to determine if we are running light or dark colorscheme:

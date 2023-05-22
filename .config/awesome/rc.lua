@@ -2,16 +2,16 @@
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
--- Standard awesome library
-local gears = require("gears")
-local awful = require("awful")
-require("awful.autofocus")
--- Theme handling library
+--  Load Theme
 local beautiful = require("beautiful")
-
-require("core.bar")
-require("core.binds")
-require("core.noti")
-require("core.rules")
-require("core.sig")
+local gears = require("gears")
 beautiful.init(gears.filesystem.get_configuration_dir() .. "themes/pywal.lua")
+
+-- Load Bindings
+require("binds")
+
+-- Load Rules
+require("rules")
+
+-- Load Signals
+require("sig")

@@ -6,8 +6,6 @@
 !.config/bat/config
 !.config/btop
 !.config/btop/btop.conf
-!.config/dunst
-!.config/dunst/dunstrc
 !.config/easyeffects
 !.config/easyeffects/input
 !.config/easyeffects/input/CondensorMic.json

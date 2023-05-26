@@ -21,7 +21,7 @@ mpris-proxy &
 #   Xorg Server   #
 ###################
 
-session=awesome
+session=dwm
 case $session in
     dwm               ) dwm-restart.sh;;
     awesome           ) exec dbus-launch awesome;;

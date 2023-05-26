@@ -29,7 +29,7 @@ color listfocus_unread yellow default bold
 color info red black bold
 color article white default bold
 
-browser "brave %u &> /dev/null & "
+browser "firefox %u &> /dev/null & "
 macro , open-in-browser
 macro C set browser "ytfzf -a %u &> /dev/null &" ; open-in-browser ; set browser "brave %u &> /dev/null &" ; toggle-article-read "read"
 macro p set browser "peertubetorrent %u 480" ; open-in-browser ; set browser linkhandler

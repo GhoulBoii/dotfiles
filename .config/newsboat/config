@@ -21,6 +21,10 @@ bind-key N prev-unread
 bind-key D pb-download
 bind-key U show-urls
 bind-key x pb-delete
+bind-key r reload
+bind-key R reload-all
+bind-key s sort
+bind-key S rev-sort
 
 color listnormal cyan default
 color listfocus black yellow standout bold
@@ -29,11 +33,8 @@ color listfocus_unread yellow default bold
 color info red black bold
 color article white default bold
 
-browser "firefox %u &> /dev/null & "
+browser linkhandler
 macro , open-in-browser
-macro C set browser "ytfzf -a %u &> /dev/null &" ; open-in-browser ; set browser "brave %u &> /dev/null &" ; toggle-article-read "read"
-macro p set browser "peertubetorrent %u 480" ; open-in-browser ; set browser linkhandler
-macro P set browser "peertubetorrent %u 1080" ; open-in-browser ; set browser linkhandler
 
 highlight all "---.*---" yellow
 highlight feedlist ".*(0/0))" black

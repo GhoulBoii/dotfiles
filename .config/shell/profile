@@ -1,9 +1,9 @@
 #!/bin/zsh
 
 # Adding PATH
-export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}:/home/ghoul/.config/emacs/bin"
+export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 
-unsetopt PROMPT_SP
+unsetopt PROMPT_SP 2>/dev/null
 
 # Default programs:
 export EDITOR="nvim"
@@ -24,7 +24,6 @@ export LESSHISTFILE="-"
 export INPUTRC="${XDG_CONFIG_HOME:-$HOME/.config}/shell/inputrc"
 export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 #export ALSA_CONFIG_PATH="$XDG_CONFIG_HOME/alsa/asoundrc"
-export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
 export WINEPREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/wineprefixes/default"
 export KODI_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/kodi"
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
@@ -39,13 +38,13 @@ export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
 export WEECHAT_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/weechat"
 export MBSYNCRC="${XDG_CONFIG_HOME:-$HOME/.config}/mbsync/config"
 export ELECTRUMDIR="${XDG_DATA_HOME:-$HOME/.local/share}/electrum"
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
+export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 export _JAVA_OPTIONS="-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 
 # Other program settings:
-export DICS="/usr/share/stardict/dic/"
-export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 export LESS='-R --use-color -Dd+r$Du+b'
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
@@ -58,85 +57,6 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 export MANPAGER="sh -c 'col -bx | bat -l man --paging always'"
 export QT_QPA_PLATFORMTHEME="qt6ct"	# Have QT use gtk2 theme.
 export GTK_THEME="Catppuccin-Mocha-Standard-Blue-Dark"
-export AWT_TOOLKIT="MToolkit wmname LG3D"	#May have to install wmname
-
-# This is the list for lf icons:
-export LF_ICONS="di=📁:\
-fi=📃:\
-tw=🤝:\
-ow=📂:\
-ln=⛓:\
-or=❌:\
-ex=🎯:\
-*.txt=✍:\
-*.mom=✍:\
-*.me=✍:\
-*.ms=✍:\
-*.png=🖼:\
-*.webp=🖼:\
-*.ico=🖼:\
-*.jpg=📸:\
-*.jpe=📸:\
-*.jpeg=📸:\
-*.gif=🖼:\
-*.svg=🗺:\
-*.tif=🖼:\
-*.tiff=🖼:\
-*.xcf=🖌:\
-*.html=🌎:\
-*.xml=📰:\
-*.gpg=🔒:\
-*.css=🎨:\
-*.pdf=📚:\
-*.djvu=📚:\
-*.epub=📚:\
-*.csv=📓:\
-*.xlsx=📓:\
-*.tex=📜:\
-*.md=📘:\
-*.r=📊:\
-*.R=📊:\
-*.rmd=📊:\
-*.Rmd=📊:\
-*.m=📊:\
-*.mp3=🎵:\
-*.opus=🎵:\
-*.ogg=🎵:\
-*.m4a=🎵:\
-*.flac=🎼:\
-*.wav=🎼:\
-*.mkv=🎥:\
-*.mp4=🎥:\
-*.webm=🎥:\
-*.mpeg=🎥:\
-*.avi=🎥:\
-*.mov=🎥:\
-*.mpg=🎥:\
-*.wmv=🎥:\
-*.m4b=🎥:\
-*.flv=🎥:\
-*.zip=📦:\
-*.rar=📦:\
-*.7z=📦:\
-*.tar.gz=📦:\
-*.z64=🎮:\
-*.v64=🎮:\
-*.n64=🎮:\
-*.gba=🎮:\
-*.nes=🎮:\
-*.gdi=🎮:\
-*.1=ℹ:\
-*.nfo=ℹ:\
-*.info=ℹ:\
-*.log=📙:\
-*.iso=📀:\
-*.img=📀:\
-*.bib=🎓:\
-*.ged=👪:\
-*.part=💔:\
-*.torrent=🔽:\
-*.jar=♨:\
-*.java=♨:\
-"
 
 [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
+

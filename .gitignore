@@ -53,6 +53,7 @@
 !.config/ytfzf/**
 !.config/zsh
 !.config/zsh/*
+!.config/hyfetch.json
 !.config/mimeapps.list
 !.config/user-dirs.dirs
 !.config/wgetrc

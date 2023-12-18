@@ -58,5 +58,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man --paging always'"
 export QT_QPA_PLATFORMTHEME="qt6ct"	# Have QT use gtk2 theme.
 export GTK_THEME="Catppuccin-Mocha-Standard-Blue-Dark"
 
+eval $(ssh-agent) 2>/dev/null
+
 [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
 

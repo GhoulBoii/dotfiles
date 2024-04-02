@@ -61,6 +61,7 @@
 !.local/bin
 !.local/bin/statusbar
 !.local/bin/statusbar/*
+!.local/bin/backup.sh
 !.local/bin/dmenu_power.sh
 !.local/bin/dmenumoji.sh
 !.local/bin/dwm-restart.sh

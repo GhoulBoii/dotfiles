@@ -1,10 +1,9 @@
 [user]
   name = GhoulBoii
   email = github@ghoulcloud.slmail.me
-	signingkey = E2478C8C27572BB0
+  signingkey = F443BDA92506073F
 [commit]
 	gpgsign = true
 [pull]
   rebase = false
-[url "git@github.com:"]
-  insteadOf = "https://github.com/"
+

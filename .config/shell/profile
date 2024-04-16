@@ -54,7 +54,7 @@ export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"
 export LESS_TERMCAP_se="$(printf '%b' '[0m')"
 export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
-export MANPAGER="sh -c 'col -bx | bat -l man --paging always'"
+export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 export QT_QPA_PLATFORMTHEME="qt6ct"	# Have QT use gtk2 theme.
 export GTK_THEME="Catppuccin-Mocha-Standard-Blue-Dark"
 

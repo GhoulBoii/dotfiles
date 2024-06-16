@@ -13,8 +13,6 @@
 !.config/feh/themes
 !.config/fontconfig
 !.config/fontconfig/fonts.conf
-!.config/GIMP
-!.config/GIMP/**
 !.config/git
 !.config/git/config
 !.config/gtk-2.0

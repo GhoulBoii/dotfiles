@@ -12,9 +12,9 @@ for command in pacman mount umount su poweroff reboot ; do
 done; unset command
 
 alias \
+  cat='bat' \
 	ls="exa -a --color=auto --group-directories-first" \
   ip='ip -color=auto' \
-  cat='bat --theme="Visual Studio Dark+"' \
 	grep="rg --color=auto" \
 	diff="diff --color=auto"
 
@@ -22,8 +22,8 @@ alias \
 	sudo='sudo ' \
 	cp="cp -iv" \
 	mv="mv -iv" \
-	rm='echo "This is not the command you are looking for."; false' \
 	mkdir="mkdir -pv" \
+	rm='echo "This is not the command you are looking for."; false' \
 	wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts" \
   lf="lfub" \
   ka="killall" \
@@ -33,7 +33,7 @@ alias \
 alias \
   zathura="devour zathura" \
   newsboat="newsboat -u /mnt/games/urls" \
-  mpv="devour mpv" \
+  # mpv="devour mpv" \
   libreoffice="devour libreoffice"
 
 alias \

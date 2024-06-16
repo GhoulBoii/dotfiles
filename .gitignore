@@ -9,6 +9,8 @@
 !.config/easyeffects
 !.config/easyeffects/input
 !.config/easyeffects/input/CondensorMic.json
+!.config/fastfetch
+!.config/fastfetch/config.jsonc
 !.config/feh
 !.config/feh/themes
 !.config/fontconfig

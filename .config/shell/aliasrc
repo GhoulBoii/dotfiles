@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# use neovim for vim if present.
+# Use neovim for vim if present.
 [ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
 
 # Use $XINITRC variable if file exists.
@@ -22,16 +22,20 @@ alias \
 	sudo='sudo ' \
 	cp="cp -iv" \
 	mv="mv -iv" \
+	rm='echo "Use trash <file> instead."; false' \
+  rsync="rsync -vrPlu" \
 	mkdir="mkdir -pv" \
-	rm='echo "This is not the command you are looking for."; false' \
+  ffmpeg="ffmpeg -hide_banner" \
 	wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts" \
   lf="lfub" \
   ka="killall" \
 	config="/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME" \
+  lazyconfig="lazygit --git-dir=$HOME/.dots"
+  mirrors="sudo reflector -c IN --sort rate -a 24 -f 5 -p https --save /etc/pacman.d/mirrorlist" \
 	purge="pacman -Qtdq | pacman -Rsunc -"
 
 alias \
-  zathura="devour zathura" \
+  zathura="gobble zathura" \
   newsboat="newsboat -u /mnt/games/urls" \
   # mpv="devour mpv" \
   libreoffice="devour libreoffice"

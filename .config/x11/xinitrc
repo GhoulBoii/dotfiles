@@ -2,8 +2,8 @@
 xrandr --setprovideroutputsource modesetting NVIDIA-0
 xrandr --auto
 xrandr --output HDMI-0 --mode 1440x900 --primary --output LVDS-1-1 --mode 1366x768 --right-of HDMI-0 --output VGA-0 --off
-xinput --set-prop 11 'libinput Accel Profile Enabled' 0, 1 
-xinput --set-prop "SynPS/2 Synaptics TouchPad" 369 0 
+xinput --set-prop 11 'libinput Accel Profile Enabled' 0, 1
+xinput --set-prop "SynPS/2 Synaptics TouchPad" 369 0
 xset -dpms
 
 #################
@@ -11,11 +11,10 @@ xset -dpms
 #################
 
 set-wallpaper.sh
-easyeffects --gapplication-service &
-unclutter &
+# easyeffects --gapplication-service &
+# unclutter &
 picom -b
 sxhkd &
-mpris-proxy &
 
 ###################
 #   Xorg Server   #
@@ -23,7 +22,8 @@ mpris-proxy &
 
 session=dwm
 case $session in
-    dwm               ) dwm-restart.sh;;
-    awesome           ) exec dbus-launch awesome;;
-    *                 ) exec dbus-launch $1;;
+    dwm               ) dbus-launch ssh-agent dwm-restart.sh;;
+    chadwm            ) dbus-launch ssh-agent ~/.config/chadwm/scripts/run.sh;;
+    awesome           ) dbus-launch ssh-agent awesome;;
+    *                 ) dbus-launch ssh-agent $1;;
 esac

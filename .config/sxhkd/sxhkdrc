@@ -12,11 +12,14 @@ XF86AudioMute
 
 # Play/Pause Audio
 XF86AudioPlay
-  playerctl play-pause
+  playerctl play
+
+XF86AudioPause
+  playerctl pause
 
 # Audio Previous/Next
 XF86Audio{Prev,Next}
-  playerctl {prev,next}
+  playerctl {previous,next}
 
 #########################
 #  Launching Programs   #
@@ -31,7 +34,7 @@ super + F5
   set-wallpaper.sh
 
 # Dmenumoji
-super + slash
+super + ;
   dmenumoji.sh
 
 # @button2

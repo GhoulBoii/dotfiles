@@ -1,6 +1,5 @@
 **
 !.gitignore
-!.zprofile
 !.config
 !.config/bat
 !.config/bat/config
@@ -52,7 +51,8 @@
 !.config/ytfzf
 !.config/ytfzf/**
 !.config/zsh
-!.config/zsh/*
+!.config/zsh/.zshrc
+!.config/zsh/.zprofile
 !.config/hyfetch.json
 !.config/mimeapps.list
 !.config/user-dirs.dirs

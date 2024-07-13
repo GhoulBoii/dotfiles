@@ -25,6 +25,9 @@ XF86Audio{Prev,Next}
 #  Launching Programs   #
 #########################
 
+super + t
+  "$TERMINAL"
+
 # Scrot for screenshots
 Print
   scrot -f -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'

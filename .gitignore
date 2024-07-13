@@ -20,8 +20,6 @@
 !.config/gtk-2.0/gtkrc-2.0
 !.config/gtk-3.0
 !.config/gtk-3.0/settings.ini
-!.config/gtk-4.0
-!.config/gtk-4.0/settings.ini
 !.config/lf
 !.config/lf/*
 !.config/mpv
@@ -34,10 +32,6 @@
 !.config/paru/paru.conf
 !.config/picom
 !.config/picom/picom.conf
-!.config/qt5ct
-!.config/qt5ct/**
-!.config/qt6ct
-!.config/qt6ct/**
 !.config/shell
 !.config/shell/*
 !.config/sxhkd

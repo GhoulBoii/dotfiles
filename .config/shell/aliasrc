@@ -30,7 +30,7 @@ alias \
   lf="lfub" \
   ka="killall" \
 	config="/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME" \
-  lazyconfig="lazygit --git-dir=$HOME/.dots"
+  lazyconfig="lazygit --git-dir=$HOME/.dots" \
   mirrors="sudo reflector -c IN --sort rate -a 24 -f 5 -p https --save /etc/pacman.d/mirrorlist" \
 	purge="pacman -Qtdq | pacman -Rsunc -"
 

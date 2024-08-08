@@ -1,0 +1,67 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.24/schema.json",
+  "app_specific_configuration_path": "$Env:USERPROFILE/applications.yaml",
+  "window_hiding_behaviour": "Cloak",
+  "mouse_follows_focus": true,
+  "cross_monitor_move_behaviour": "Insert",
+  "default_workspace_padding": 2,
+  "default_container_padding": 2,
+  "border_width": 1,
+  "border_offset": 1,
+  "border": true,
+  "border_style": "Rounded",
+  "border_colours": {
+    "single": "#42a5f5",
+    "stack": "#00a542",
+    "monocle": "#ff3399"
+  },
+  "animation": {
+    "enabled": true,
+    "duration": 250,
+    "style": "EaseInOutExpo",
+    "fps": 60
+  },
+  "float_rules": [
+    {
+      "kind": "Class",
+      "id": "MozillaDialogClass",
+      "matching_strategy": "Equals"
+    }
+  ],
+  "stackbar": {
+    "height": 40,
+    "mode": "OnStack",
+    "tabs": {
+      "width": 300,
+      "focused_text": "#00a542",
+      "unfocused_text": "#b3b3b3",
+      "background": "#141414"
+    }
+  },
+  "monitors": [
+    {
+      "workspaces": [
+        {
+          "name": "www",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": ">_",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": "music",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": "game",
+          "layout": "VerticalStack"
+        },
+        {
+          "name": "misc",
+          "layout": "VerticalStack"
+        }
+      ]
+    }
+  ]
+}

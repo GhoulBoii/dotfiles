@@ -13,7 +13,7 @@ done; unset command
 
 alias \
   cat='bat' \
-	ls="exa -a --color=auto --group-directories-first" \
+	ls="eza -a --color=auto --group-directories-first" \
   ip='ip -color=auto' \
 	grep="rg --color=auto" \
 	diff="diff --color=auto"
@@ -29,25 +29,18 @@ alias \
 	wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts" \
   lf="lfub" \
   ka="killall" \
-	config="/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME" \
-  lazyconfig="lazygit --git-dir=$HOME/.dots" \
   mirrors="sudo reflector -c IN --sort rate -a 24 -f 5 -p https --save /etc/pacman.d/mirrorlist" \
 	purge="pacman -Qtdq | pacman -Rsunc -"
 
 alias \
-  zathura="gobble zathura" \
-  newsboat="newsboat -u /mnt/games/urls" \
-  # mpv="devour mpv" \
-  libreoffice="devour libreoffice"
+  pbcopy="xsel --input --clipboard" \
+  pbpaste="xsel --output --clipboard"
 
 alias \
-  g="git " \
-  gst="git status" \
-  gaa="git add " \
-  gcm="git commit -m " \
-  gpu="git push origin " \
-  gcb="git checkout -b " \
-  gsw="git switch " \
-  gpl="git pull origin " \
+  newsboat="newsboat -u $HOME/doc/urls"
+
+alias \
+	config="/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME" \
+  lazyconfig="lazygit --git-dir=$HOME/.dots" \
   glog="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'"
 

@@ -1,0 +1,35 @@
+#!/usr/bin/env sh
+
+if [ -z "$1" ]; then
+	url="$(xclip -o)"
+else
+	url="$1"
+fi
+
+queue ()
+{
+  if [[ ! -f /tmp/.mpvinput ]]; then
+    touch /tmp/.mpvinput
+  fi
+  if pgrep -f MPV-Q > /dev/null
+  then
+      echo "loadfile "$1" append-play" | socat - /tmp/.mpvinput
+  else
+      mpv --no-terminal --x11-name=MPV-Q --input-ipc-server=/tmp/.mpvinput --idle=yes "$1" &
+  fi
+}
+
+case "$url" in
+	*mkv|*webm|*mp4|*youtube.com/watch*|*youtube.com/playlist*|*youtube.com/shorts*|*youtu.be*|*hooktube.com*|*bitchute.com*|*videos.lukesmith.xyz*|*odysee.com*)
+		queue "$url" >/dev/null 2>&1 ;;
+	*png|*jpg|*jpe|*jpeg|*gif)
+		curl -sL "$url" > "/tmp/$(echo "$url" | sed "s/.*\///;s/%20/ /g")" && feh "/tmp/$(echo "$url" | sed "s/.*\///;s/%20/ /g")"  >/dev/null 2>&1 & ;;
+  *gif)
+		curl -sL "$url" > "/tmp/$(echo "$url" | sed "s/.*\///;s/%20/ /g")" && mpv --loop "/tmp/$(echo "$url" | sed "s/.*\///;s/%20/ /g")"  >/dev/null 2>&1 & ;;
+	*pdf|*cbz|*cbr)
+		curl -sL "$url" > "/tmp/$(echo "$url" | sed "s/.*\///;s/%20/ /g")" && zathura "/tmp/$(echo "$url" | sed "s/.*\///;s/%20/ /g")"  >/dev/null 2>&1 & ;;
+	# *mp3|*flac|*opus|*mp3?source*)
+	# 	qndl "$url" 'curl -LO'  >/dev/null 2>&1 ;;
+	*)
+		[ -f "$url" ] && setsid -f "$TERMINAL" -e "$EDITOR" "$url" >/dev/null 2>&1 || setsid -f "$BROWSER" --new-tab --url "$url" >/dev/null 2>&1
+esac

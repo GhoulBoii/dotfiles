@@ -60,8 +60,12 @@
 !.local/bin/dmenumoji.sh
 !.local/bin/dwm-restart.sh
 !.local/bin/lfub
+!.local/bin/linkhandler
 !.local/bin/monitor_layout.sh
 !.local/bin/set-wallpaper.sh
 !.local/share
 !.local/share/char
 !.local/share/char/*
+!LICENSE.md
+!README.md
+!setup.sh

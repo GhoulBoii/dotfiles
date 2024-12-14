@@ -3,11 +3,9 @@
 
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
-eval "$(zoxide init --cmd j zsh)"
 
 # History in cache directory:
 HISTSIZE=10000
@@ -16,7 +14,7 @@ HISTCONTROL=erasedups:ignoredups:ignorespace
 HISTFILE="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/history"
 setopt inc_append_history
 
-# Load aliases:
+# Load aliases
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 
 # Basic auto/tab complete:
@@ -91,7 +89,7 @@ extract() {
 
 bindkey -s '^o' '^ulfcd\n'
 
-bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
+bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
 
 bindkey '^[[P' delete-char
 
@@ -113,4 +111,5 @@ bindkey '^[[B' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-export PATH=$PATH:/home/ghoul/.spicetify
+eval "$(starship init zsh)"
+eval "$(zoxide init --cmd j zsh)"

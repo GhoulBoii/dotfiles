@@ -1,0 +1,82 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.30/schema.json",
+  "app_specific_configuration_path": "C:/Users/ksh/.config/komorebi/applications.json",
+  "window_hiding_behaviour": "Cloak",
+  "cross_monitor_move_behaviour": "Insert",
+  "mouse_follows_focus": true,
+  "default_workspace_padding": 2,
+  "default_container_padding": 2,
+  "animation": {
+    "enabled": true,
+    "style": "EaseInOutExpo"
+  },
+  "border": true,
+  "border_implementation": "Windows",
+  "border_style": "Rounded",
+  "border_width": 2,
+  "border_offset": 0,
+  "theme": {
+    "palette": "Base16",
+    "name": "Ashes",
+    "unfocused_border": "Base03",
+    "bar_accent": "Base0D"
+  },
+  "floating_applications": [
+    {
+      "kind": "Title",
+      "id": "WebSocket Server Settings",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Settings",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Advanced Audio Properties",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Auto-Configuration Wizard",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Output Timer",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Class",
+      "id": "MozillaDialogClass",
+      "matching_strategy": "Equals"
+    }
+  ],
+  "monitors": [
+    {
+      "workspaces": [
+        {
+          "name": "",
+          "layout": "BSP"
+        },
+        {
+          "name": "",
+          "layout": "BSP"
+        },
+        {
+          "name": "",
+          "layout": "BSP"
+        },
+        {
+          "name": "",
+          "layout": "BSP"
+        },
+        {
+          "name": "misc",
+          "layout": "BSP"
+        }
+      ]
+    }
+  ]
+}

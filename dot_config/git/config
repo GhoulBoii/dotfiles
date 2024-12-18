@@ -1,0 +1,8 @@
+[user]
+  name = GhoulBoii
+  email = code.ksh@erine.email
+  signingkey = F443BDA92506073F
+[commit]
+  gpgsign = true
+[pull]
+  rebase = false

@@ -1,0 +1,8 @@
+README.md
+LICENSE.md
+
+{{ if ne .chezmoi.os "windows" }}
+Documents/**
+dot_config/**
+dot_local/**
+{{- end }}

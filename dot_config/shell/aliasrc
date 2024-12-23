@@ -1,0 +1,49 @@
+#!/bin/sh
+
+# Use $XINITRC variable if file exists.
+[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+
+# sudo not required for some system commands
+for command in pacman mount umount su poweroff reboot ; do
+	alias $command="sudo $command"
+done; unset command
+
+# Make aliases work with sudo
+alias sudo="sudo "
+
+# Sane defaults
+alias \
+	cp="cp -iv" \
+	mv="mv -iv" \
+  rsync="rsync -vrPlu" \
+	mkdir="mkdir -pv" \
+  ffmpeg="ffmpeg -hide_banner"
+
+# Adding color
+alias \
+  cat='bat' \
+	ls="exa -a --color=auto --group-directories-first" \
+	diff="diff --color=auto"
+  ip='ip -color=auto'
+
+# git
+alias \
+  config="git --git-dir=$HOME/.dots/ --work-tree=$HOME" \
+  lazyconfig="lazygit --git-dir=$HOME/.dots"
+  alias glog="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'"
+
+# Copy & Paste
+alias \
+  pbcopy="xsel --input --clipboard" \
+  pbpaste="xsel --output --clipboard"
+
+# Misc
+alias \
+  newsboat="newsboat -u $HOME/doc/urls"
+  lf="lfub" \
+  ka="killall" \
+	purge="pacman -Qtdq | pacman -Rsunc -"
+	rm='echo "Use trash <file> instead."; false' \
+	wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts" \
+  mirrors="sudo reflector -c IN --sort rate -a 24 -f 5 -p https --save /etc/pacman.d/mirrorlist"
+

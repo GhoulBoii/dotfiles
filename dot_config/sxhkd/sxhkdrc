@@ -1,0 +1,44 @@
+####################
+#   XF86 Keybinds  #
+####################
+
+# Increase/Decrease volume
+XF86Audio{Raise,Lower}Volume
+  pactl set-sink-volume @DEFAULT_SINK@ {+10%,-10%}
+
+# Mute volume
+XF86AudioMute
+  pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Play/Pause Audio
+XF86AudioPlay
+  playerctl play
+
+XF86AudioPause
+  playerctl pause
+
+# Audio Previous/Next
+XF86Audio{Prev,Next}
+  playerctl {previous,next}
+
+#########################
+#  Launching Programs   #
+#########################
+
+super + t
+  "$TERMINAL"
+
+# Scrot for screenshots
+Print
+  scrot -f -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
+
+# Changing Wallpaper
+super + F5
+  set-wallpaper.sh
+
+# Dmenumoji
+super + ;
+  dmenumoji.sh
+
+# @button2
+#   echo -n | xsel -n -i; xdotool click 2

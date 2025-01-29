@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Displays today's precipication chance (☔), and daily low (🥶) and high (🌞).
+# Usually intended for the statusbar.
+
+url="${WTTRURL:-wttr.in}"
+weatherreport="${XDG_CACHE_HOME:-$HOME/.cache}/weatherreport"
+
+# Get a weather report from 'wttr.in' and save it locally.
+getforecast() {
+  hour=$(date '+%H')
+  if [[ $hour -ge 18 ]] || [[ "$hour" -lt 6 ]]; then
+    timeout --signal=1 2s curl -sf "$url/$LOCATION?format=+%m%t" > "$weatherreport" || exit 1
+  else
+    timeout --signal=1 2s curl -sf "$url/$LOCATION?format=+%c%t" > "$weatherreport" || exit 1
+  fi
+}
+
+showweather() {
+  cat "$weatherreport"
+}
+
+case $BLOCK_BUTTON in
+	2) getforecast && showweather ;;
+esac
+
+if [[ ! -r "$weatherreport" ]]; then
+  getforecast
+fi
+showweather

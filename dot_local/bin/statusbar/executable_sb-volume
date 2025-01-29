@@ -1,18 +1,32 @@
 #!/bin/sh
-# Prints the current volume or 🔇 if muted.
 
-[ $(pactl get-sink-mute @DEFAULT_SINK@ | gawk '{print $2}') = yes ] && echo 🔇 && exit
+case $BLOCK_BUTTON in
+	1) setsid -w -f "$TERMINAL" -e pulsemixer; pkill -RTMIN+10 "${STATUSBAR:-dwmblocks}" ;;
+	3) wpctl set-mute @DEFAULT_SINK@ toggle ;;
+	4) wpctl set-volume @DEFAULT_SINK@ 2%+ ;;
+	5) wpctl set-volume @DEFAULT_SINK@ 2%- ;;
+esac
 
-vol="$(pactl get-sink-volume @DEFAULT_SINK@ | gawk '{print $5}' | sed 's/.$//')"
+vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
 
-if [ "$vol" -gt "70" ]; then
-	icon="🔊"
-elif [ "$vol" -gt "30" ]; then
-	icon="🔉"
-elif [ "$vol" -gt "0" ]; then
-	icon="🔈"
-else
-        echo 🔇 && exit
-fi
+# If muted, print 󰖁  and exit.
+[ "$vol" != "${vol%\[MUTED\]}" ] && echo 󰖁 && exit
+
+vol="${vol#Volume: }"
+
+split() {
+	IFS=$2
+	set -- $1
+	printf '%s' "$@"
+}
+
+vol="$(printf "%.0f" "$(split "$vol" ".")")"
+
+case 1 in
+	$((vol >= 70)) ) icon="󰕾" ;;
+	$((vol >= 30)) ) icon="󰖀" ;;
+	$((vol >= 1)) ) icon="󰕿" ;;
+	* ) echo 󰖁 && exit ;;
+esac
 
 echo "$icon $vol%"

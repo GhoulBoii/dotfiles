@@ -37,8 +37,11 @@ super + F5
   set-wallpaper.sh
 
 # Dmenumoji
-super + ;
+super + semicolon
   dmenumoji.sh
+
+super + shift + e
+  nemo
 
 # @button2
 #   echo -n | xsel -n -i; xdotool click 2

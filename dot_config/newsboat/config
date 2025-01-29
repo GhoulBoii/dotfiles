@@ -1,40 +1,29 @@
-#show-read-feeds no
-auto-reload yes
-reload-threads 100
+# -- feeds ---------------------------------------------------------------------
 
-bind-key SPACE macro-prefix
-bind-key j down
-bind-key k up
-bind-key j next articlelist
-bind-key k prev articlelist
-bind-key J next-feed articlelist
-bind-key K prev-feed articlelist
-bind-key G end
-bind-key g home
-bind-key d pagedown
-bind-key u pageup
-bind-key l open
-bind-key h quit
-bind-key a toggle-article-read
-bind-key n next-unread
-bind-key N prev-unread
-bind-key D pb-download
-bind-key U show-urls
-bind-key x pb-delete
-bind-key r reload
-bind-key R reload-all
-bind-key s sort
-bind-key S rev-sort
+
+auto-reload yes
+reload-time 120
+reload-threads 4
+download-retries 4
+download-timeout 10
+prepopulate-query-feeds yes
+
+
+# -- display -------------------------------------------------------------------
+
+
+# show-read-feeds no
+feed-sort-order unreadarticlecount-asc
+articlelist-format  "%4i %f  %?T?|%-17T|  ?%t"
+text-width 80
 
 color listnormal cyan default
 color listfocus black yellow standout bold
 color listnormal_unread blue default
-color listfocus_unread yellow default bold
+color listfocus_unread yellow default reverse bold
 color info red black bold
 color article white default bold
-
-browser linkhandler
-macro , open-in-browser
+color info default default reverse
 
 highlight all "---.*---" yellow
 highlight feedlist ".*(0/0))" black
@@ -50,4 +39,41 @@ highlight article "\\[embedded flash: [0-9][0-9]*\\]" green default bold
 highlight article ":.*\\(link\\)$" cyan default
 highlight article ":.*\\(image\\)$" blue default
 highlight article ":.*\\(embedded flash\\)$" magenta default
+
+
+# -- navigation ----------------------------------------------------------------
+
+
+browser linkhandler
+macro , open-in-browser
+bind-key j down
+bind-key k up
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key G end
+bind-key g home
+bind-key d pagedown
+bind-key u pageup
+bind-key l open
+bind-key h quit
+bind-key a toggle-article-read
+bind-key r reload
+bind-key R reload-all
+
+
+# -- bookmarks -----------------------------------------------------------------
+
+
+# bookmark-cmd ~/.newsbeuter/bookmark.sh
+# bookmark-interactive no
+# bookmark-autopilot yes
+
+
+# -- misc ----------------------------------------------------------------------
+
+
+unbind-key C feedlist
+confirm-exit no
 

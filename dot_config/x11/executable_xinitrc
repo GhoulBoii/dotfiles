@@ -1,25 +1,22 @@
 #!/bin/sh
-# xrandr --setprovideroutputsource modesetting NVIDIA-0
-# xrandr --auto
-# xrandr --output HDMI-0 --mode 1440x900 --primary --output LVDS-1-1 --mode 1366x768 --right-of HDMI-0 --output VGA-0 --off
-xrandr --output HDMI-1-2 --mode 1440x900 --primary --output LVDS-1 --mode 1366x768 --right-of HDMI-1-2 --output VGA-1-2 --off
-xinput --set-prop 11 'libinput Accel Profile Enabled' 0, 1
-xinput --set-prop "SynPS/2 Synaptics TouchPad" 369 0
+
+xinput --set-prop "pointer:Razer Razer Viper Mini" 'libinput Accel Profile Enabled' 0, 1
+xinput --set-prop "pointer:SynPS/2 Synaptics TouchPad" 369 0
 xset -dpms
 
 # Autostart
+gwe --hide-window &
 set-wallpaper.sh
-# gwe --hide-window &
-# easyeffects --gapplication-service &
 unclutter &
 udiskie &
 picom -b
 sxhkd &
+dwmblocks &
 
 # WM/DE Bootup
-session=awesome
+session=dwm
 case $session in
-    dwm               ) dbus-launch ssh-agent dwm-restart.sh;;
-    awesome           ) dbus-launch ssh-agent awesome;;
-    *                 ) dbus-launch ssh-agent $1;;
+    dwm               ) ssh-agent dwm;;
+    awesome           ) ssh-agent awesome;;
+    *                 ) ssh-agent $1;;
 esac

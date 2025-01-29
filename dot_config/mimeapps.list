@@ -9,6 +9,12 @@ application/x-extension-shtml=firefox.desktop
 application/xhtml+xml=firefox.desktop
 application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
+x-scheme-handler/muffon=muffon.desktop
+application/pdf=firefox.desktop
+image/png=feh.desktop
+text/plain=nvim.desktop
+inode/directory=nemo.desktop
+application/x-gnome-saved-search=nemo.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
@@ -24,3 +30,6 @@ application/x-extension-xht=firefox.desktop;
 application/octet-stream=nvim.desktop;
 image/jpeg=feh.desktop;
 application/x-vhdx-disk=virtualbox.desktop;
+application/pdf=firefox.desktop;
+image/png=feh.desktop;
+text/plain=nvim.desktop;

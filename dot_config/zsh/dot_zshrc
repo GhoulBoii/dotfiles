@@ -7,8 +7,12 @@ setopt autocd		# Automatically cd into typed directory.
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt interactive_comments
 
-# History in cache directory:
+# History in cache directory
+[ -d "$XDG_CACHE_HOME"/zsh ] || mkdir -p "$XDG_CACHE_HOME"/zsh
+[ -d "$XDG_STATE_HOME"/zsh ] || mkdir -p "$XDG_STATE_HOME"/zsh
 HISTFILE="$XDG_STATE_HOME"/zsh/history
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
+
 HISTSIZE=10000
 SAVEHIST=10000
 HISTCONTROL=erasedups:ignoredups:ignorespace
@@ -21,7 +25,7 @@ setopt inc_append_history
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-compinit
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-$ZSH_VERSION
 _comp_options+=(globdots)		# Include hidden files.
 
 # vi mode
@@ -36,7 +40,6 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select () {
@@ -46,6 +49,7 @@ function zle-keymap-select () {
     esac
 }
 zle -N zle-keymap-select
+
 zle-line-init() {
     zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
     echo -ne "\e[5 q"
@@ -55,15 +59,10 @@ echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # Use lf to switch directories and bind it to ctrl-o
-lfcd () {
-    tmp="$(mktemp -uq)"
-    trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT' HUP INT QUIT TERM PWR EXIT
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
+lfcd() {
+  cd "$(command lf -print-last-dir "$@")"
 }
+
 extract() {
   for archive in "$@"; do
 		if [ -f "$archive" ]; then
@@ -99,6 +98,7 @@ bindkey '^e' edit-command-line
 bindkey -M vicmd '^[[P' vi-delete-char
 bindkey -M vicmd '^e' edit-command-line
 bindkey -M visual '^[[P' vi-delete
+bindkey -v '^?' backward-delete-char
 
 # Plugins
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null

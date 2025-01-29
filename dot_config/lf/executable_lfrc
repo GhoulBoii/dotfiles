@@ -50,7 +50,7 @@ cmd delete ${{
 	printf "%s\n\t" "$fx"
 	printf "Trash? [y/N]"
 	read ans
-	[ $ans = "y" ] && trash-put $fx
+	[ $ans = "y" ] && trash $fx
 }}
 
 cmd moveto ${{

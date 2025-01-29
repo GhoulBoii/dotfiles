@@ -1,5 +1,4 @@
 local wezterm = require 'wezterm'
-local mux = wezterm.mux
 local act = wezterm.action
 local config = {}
 local keys = {}
@@ -20,16 +19,8 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
     args = { 'pwsh.exe', '-NoLogo' },
   })
   table.insert(launch_menu, {
-    label = 'Pwsh No Profile',
-    args = { 'pwsh.exe', '-NoLogo', '-NoProfile' },
-  })
-  table.insert(launch_menu, {
     label = 'PowerShell',
     args = { 'powershell.exe', '-NoLogo' },
-  })
-  table.insert(launch_menu, {
-    label = 'PowerShell No Profile',
-    args = { 'powershell.exe', '-NoLogo', '-NoProfile' },
   })
 end
 
@@ -144,14 +135,10 @@ keys = {
   { key = 'PageDown',   mods = 'CTRL',           action = act.ActivateTabRelative(1) },
   { key = 'PageDown',   mods = 'SHIFT|CTRL',     action = act.MoveTabRelative(1) },
   { key = 'LeftArrow',  mods = 'SHIFT|ALT|CTRL', action = act.AdjustPaneSize { 'Left', 1 } },
-  -- Turning these off so I can use pwsh keys
-  -- { key = 'LeftArrow', mods = 'SHIFT|CTRL', action = act.ActivatePaneDirection 'Left' },
-  -- { key = 'RightArrow', mods = 'SHIFT|CTRL', action = act.ActivatePaneDirection 'Right' },
   -- Add these to allow quick moving between prompts
   { key = 'UpArrow',    mods = 'SHIFT',          action = act.ScrollToPrompt(-1) },
   { key = 'DownArrow',  mods = 'SHIFT',          action = act.ScrollToPrompt(1) },
   --
-  { key = 'RightArrow', mods = 'SHIFT|ALT|CTRL', action = act.AdjustPaneSize { 'Right', 1 } },
   { key = 'UpArrow',    mods = 'SHIFT|CTRL',     action = act.ActivatePaneDirection 'Up' },
   { key = 'UpArrow',    mods = 'SHIFT|ALT|CTRL', action = act.AdjustPaneSize { 'Up', 1 } },
   { key = 'DownArrow',  mods = 'SHIFT|CTRL',     action = act.ActivatePaneDirection 'Down' },
@@ -188,9 +175,9 @@ config.scrollback_lines = 7000
 config.adjust_window_size_when_changing_font_size = false
 config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "RESIZE"
-config.font = wezterm.font{family = "JetBrains Mono", weight = 'Bold'}
+config.font = wezterm.font{family = "FiraCode Nerd Font"}
 config.warn_about_missing_glyphs = false
-config.window_background_opacity = 0.8
+config.window_background_opacity = 0.7
 config.launch_menu = launch_menu
 config.default_cursor_style = 'BlinkingBar'
 config.disable_default_key_bindings = true

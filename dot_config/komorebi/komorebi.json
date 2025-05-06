@@ -1,13 +1,13 @@
 {
-  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.30/schema.json",
-  "app_specific_configuration_path": "C:/Users/ksh/.config/komorebi/applications.json",
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.35/schema.json",
+  "app_specific_configuration_path": "$Env:USERPROFILE/.config/komorebi/applications.json",
   "window_hiding_behaviour": "Cloak",
   "cross_monitor_move_behaviour": "Insert",
-  "mouse_follows_focus": true,
+  "mouse_follows_focus": false,
   "default_workspace_padding": 2,
   "default_container_padding": 2,
   "animation": {
-    "enabled": true,
+    "enabled": false,
     "style": "EaseInOutExpo"
   },
   "border": true,
@@ -21,7 +21,7 @@
     "unfocused_border": "Base03",
     "bar_accent": "Base0D"
   },
-  "floating_applications": [
+  "ignore_rules": [
     {
       "kind": "Title",
       "id": "WebSocket Server Settings",
@@ -30,6 +30,11 @@
     {
       "kind": "Title",
       "id": "Settings",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Title",
+      "id": "Stats",
       "matching_strategy": "Equals"
     },
     {
@@ -46,30 +51,25 @@
       "kind": "Title",
       "id": "Output Timer",
       "matching_strategy": "Equals"
-    },
-    {
-      "kind": "Class",
-      "id": "MozillaDialogClass",
-      "matching_strategy": "Equals"
     }
   ],
   "monitors": [
     {
       "workspaces": [
         {
-          "name": "",
+          "name": "web",
           "layout": "BSP"
         },
         {
-          "name": "",
+          "name": "dev",
           "layout": "BSP"
         },
         {
-          "name": "",
+          "name": "media",
           "layout": "BSP"
         },
         {
-          "name": "",
+          "name": "game",
           "layout": "BSP"
         },
         {

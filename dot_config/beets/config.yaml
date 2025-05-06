@@ -1,0 +1,40 @@
+threaded: yes
+plugins: spotify fetchart scrub inline replaygain zero lyrics convert mbsubmit lidarrfields
+
+# directory: D:\music\
+directory: /media/128GB SSD/music/
+per_disc_numbering: yes
+
+item_fields:
+    first_artist: |
+        import re
+        return re.split(',|\\s+(feat(.?|uring)|&|(Vs|Ft).)', albumartist, 1, flags=re.IGNORECASE)[0]
+
+# paths:
+#     default: ${first_artist}/$album/$track $title
+
+paths:
+    default: $releasegroupartist/$album%aunique{}/$track $title
+    singleton: Non-Album/$artist/$title
+    comp: Compilations/$album%aunique{}/$track $title
+
+
+fetchart:
+  maxwidth: 500
+  enforce_ratio: yes
+  sources:
+    - coverart: release releasegroup
+    - spotify
+    - itunes
+    - '*'
+
+zero:
+    # keep_fields : [title artist album albumartist track disc tracktotal disctotal genre year "UNSYNCED LYRICS"]
+  fields: images
+  update_database: true
+
+replaygain:
+  backend: ffmpeg
+
+lyrics:
+  synced: yes

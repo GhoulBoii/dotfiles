@@ -1,11 +1,43 @@
 README.md
-LICENSE.md
+LICENSE
 
 {{ if ne .chezmoi.os "windows" }}
-Documents/**
-.config/komorebi
+Documents/Powershell
+.config/git
+.config/kanata
+.config/komorebi/komorebi.ahk
+.config/komorebi/komorebi.json
+.config/mpv
 .config/nushell
 .config/scoop
-.config/yasb
+.config/wezterm
+.config/yasb/config.yaml
+.config/yasb/styles.css
 .local/bin/resize.ahk
+.kopiaignore
+{{ end }}
+
+{{ if ne .chezmoi.os "linux" }}
+.config/dunst
+.config/feh
+.config/fontconfig
+.config/gtk-2.0
+.config/gtk-3.0
+.config/newsboat
+.config/paru
+.config/picom
+.config/pipewire
+.config/gwe
+.config/shell
+.config/sxhkd
+.config/systemd
+.config/tmux
+.config/x11
+.config/ytfzf
+.config/zsh
+.config/mimeapps.list
+.config/user-dirs.dirs
+.local/bin/statusbar
+.local/bin/*.sh
+.local/share/char/*
 {{ end }}

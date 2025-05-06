@@ -1,18 +1,14 @@
 watch_stylesheet: true
 watch_config: true
 
-# This komorebi setting will be used for tray context menu.
-# If you don't use komorebi, you can remove this section.
 komorebi:
   start_command: "pwsh -Command komorebic start --ahk"
   stop_command: "komorebic stop"
   reload_command: "komorebic stop && pwsh -Command komorebic start --ahk"
 
-# This is the main configuration file for Yet Another Status Bar (YASB)
 bars:
   status-bar:
     enabled: true
-    #screens: ['DELL P2419H (1)'] # If you want to show on specific screen
     screens: ['*']
     class_name: "yasb-bar"
     alignment:
@@ -23,11 +19,11 @@ bars:
       windows_app_bar: true
     dimensions:
       width: "100%"
-      height: 36
+      height: 28
     padding:
-      top: 4
+      top: 0
       left: 0
-      bottom: 4
+      bottom: 0
       right: 0
     widgets:
       left:
@@ -38,9 +34,8 @@ bars:
       center: []
       right:
         [
-          "media",
-          "wifi",
-          "weather",
+          "systray",
+          "battery",
           "volume",
           "clock"
         ]
@@ -48,12 +43,12 @@ widgets:
   media:
     type: "yasb.media.MediaWidget"
     options:
-      label: "{title} - {artist}"
-      label_alt: "{title}"
+      label: "<span>\udb81\udf5a</span> {title}"
+      label_alt: "{title} - {artist}"
       max_field_size:
-        label: 20
+        label: 30
         label_alt: 30
-      show_thumbnail: true
+      show_thumbnail: false
       controls_only: false
       controls_left: true
       hide_empty: true
@@ -63,9 +58,33 @@ widgets:
       icons:
         prev_track: "\udb81\udcae"
         next_track: "\udb81\udcad"
-        play: "\udb81\udc0d"
-        pause: "\udb80\udfe6"
+        play: "\udb81\udc0a"
+        pause: "\udb80\udfe4"
 
+  active_window:
+    type: "yasb.active_window.ActiveWindowWidget"
+    options:
+      label: "{win[title]}"
+      label_alt: "Class[{win[class_name]}] Process[{win[process][name]}]"
+      label_no_window: ""
+      label_icon: true
+      label_icon_size: 20
+      max_length: 145
+      max_length_ellipsis: "..."
+      monitor_exclusive: true
+
+  systray:
+    type: "yasb.systray.SystrayWidget"
+    options:
+      class_name: "systray"
+      label_collapsed: "\uf0d7"
+      label_expanded: "\ue602"
+      label_position: "left" # Can be "left" or "right"
+      icon_size: 16 # Can be any integer between 8 and 64
+      pin_click_modifier: "alt" # Can be "ctrl", "alt" or "shift"
+      show_unpinned: false
+      show_battery: false
+      show_volume: false
 
   battery:
     type: "yasb.battery.BatteryWidget"
@@ -78,7 +97,7 @@ widgets:
   clock:
     type: "yasb.clock.ClockWidget"
     options:
-      label: "\uf43a {%a %d, %b %I:%M:%S %p}"
+      label: " \udb82\udd54 {%a %d, %b %I:%M %p}"
       label_alt: "{%A %d %B %Y, %H:%M}"
 
   komorebi_workspaces:
@@ -126,43 +145,6 @@ widgets:
       callbacks:
         on_left: 'next_layout'
         on_middle: 'toggle_monocle'
-        on_right: 'prev_layout'
-
-  wifi:
-    type: "yasb.wifi.WifiWidget"
-    options:
-      label: "<span>{wifi_icon}</span>"
-      label_alt: "{wifi_name} {wifi_strength}%"
-      update_interval: 5000
-      callbacks:
-        on_left: "exec cmd.exe /c start ms-settings:network"
-        on_middle: "do_nothing"
-        on_right: "toggle_label"
-
-  weather:
-    type: "yasb.weather.WeatherWidget"
-    options:
-      label: "<span>{icon}</span> {temp_c}"
-      label_alt: "{location}: Min {min_temp_c}, Max {max_temp_c}, Humidity {humidity}"
-      api_key: '3bf4cf9a7c3f40d6b31174128242807' # Get your free API key from https://www.weatherapi.com/
-      update_interval: 600 # Update interval in seconds, Min 600 seconds
-      hide_decimal: true
-      location: 'Pune' # You can use "USA Los Angeles 90006" {COUNTRY CITY ZIP_CODE}, or just city.
-      callbacks:
-        on_left: "toggle_label"
-      icons:
-        sunnyDay: "\ue30d"
-        clearNight: "\ue32b"
-        cloudyDay: "\udb81\udd99"
-        cloudyNight: "\ue311"
-        rainyDay: "\udb81\ude7e"
-        rainyNight: "\udb81\ude7e"
-        snowyIcyDay: "\udb81\udd98"
-        snowyIcyNight: "\udb81\udd98"
-        blizzard: "\uebaa"
-        default: "\uebaa"
-        # https://www.weatherapi.com/docs/
-        # Usage {temp_c}, {min_temp_c}, {max_temp_c}, {temp_f}, {min_temp_f}, {max_temp_f}, {location}, {humidity}, {icon}, {conditions}
 
   volume:
     type: "yasb.volume.VolumeWidget"
@@ -177,18 +159,3 @@ widgets:
         - "\uf028"  # Icon for 61-100% volume
       callbacks:
         on_right: "exec cmd.exe /c start ms-settings:sound"
-
-  taskbar:
-    type: "yasb.taskbar.TaskbarWidget"
-    options:
-      animation: false
-      icon_size: 16
-      ignore_apps:
-        processes: []
-        titles: []
-        classes: []
-      container_padding:
-        top: 0
-        left: 0
-        bottom: 0
-        right: 0

@@ -1,24 +1,16 @@
 #opt-out of telemetry
 [System.Environment]::SetEnvironmentVariable("POWERSHELL_TELEMETRY_OPTOUT", "1");
 [System.Environment]::SetEnvironmentVariable('KOMOREBI_CONFIG_HOME', "$HOME\.config\komorebi", "User")
+[System.Environment]::SetEnvironmentVariable('XDG_CONFIG_HOME', "$HOME\.config", "User")
+[System.Environment]::SetEnvironmentVariable('WGPU_BACKEND', "gl", "User")
 
 # Editor Configuration
 $EDITOR = "nvim"
+$SHELL = "pwsh"
 
-function Edit-Profile
+function ep
 {
   & $EDITOR $PROFILE.CurrentUserAllHosts
-}
-Set-Alias -Name ep -Value Edit-Profile
-
-function touch($file)
-{
-  "" | Out-File $file -Encoding ASCII
-}
-
-function reload-profile
-{
-  & $profile
 }
 
 function unzip ($file)
@@ -26,21 +18,6 @@ function unzip ($file)
   Write-Output("Extracting", $file, "to", $pwd)
   $fullFile = Get-ChildItem -Path $pwd -Filter $file | ForEach-Object { $_.FullName }
   Expand-Archive -Path $fullFile
-}
-
-function grep($regex, $dir)
-{
-  if ( $dir )
-  {
-    Get-ChildItem $dir | select-string $regex
-    return
-  }
-  $input | select-string $regex
-}
-
-function df
-{
-  get-volume
 }
 
 function sed($file, $find, $replace)
@@ -68,19 +45,6 @@ function pgrep($name)
   Get-Process $name
 }
 
-function head
-{
-  param($Path, $n = 10)
-  Get-Content $Path -Head $n
-}
-
-function tail
-{
-  param($Path, $n = 10, [switch]$f = $false)
-  Get-Content $Path -Tail $n -Wait:$f
-}
-
-# Directory Management
 function trash($path)
 {
   $fullPath = (Resolve-Path -Path $path).Path
@@ -116,28 +80,6 @@ function trash($path)
   }
 }
 
-Set-Alias -Name ls -Value eza
-
-function ln
-{
-  param (
-    [string]$Source,
-    [string]$Link
-  )
-
-  if (Test-Path $Link)
-  {
-    Remove-Item $Link -Force
-  }
-  if ($item.PSIsContainer)
-  {
-    cmd /c mklink /J $Link $Source
-  } else
-  {
-    cmd /c mklink /d $Link $Source
-  }
-}
-
 function config
 {
   param (
@@ -147,15 +89,13 @@ function config
   git --git-dir=$HOME\.dots --work-tree=$HOME @args
 }
 
-# Networking Utilities
 function flushdns
 {
   Clear-DnsClientCache
   Write-Host "DNS has been flushed"
 }
 
-# System Utilities
-function admin
+function su
 {
   if ($args.Count -gt 0)
   {
@@ -166,10 +106,7 @@ function admin
     Start-Process wt -Verb runAs
   }
 }
-Set-Alias -Name su -Value admin
 
-
-# Clipboard Utilities
 function pbcopy
 {
   Set-Clipboard $args[0]
@@ -205,13 +142,6 @@ Set-PSReadLineOption @PSROptions
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
-# Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
-# Set-PSReadLineKeyHandler -Chord 'Ctrl+w' -Function BackwardDeleteWord
-# Set-PSReadLineKeyHandler -Chord 'Alt+d' -Function DeleteWord
-# Set-PSReadLineKeyHandler -Chord 'Ctrl+LeftArrow' -Function BackwardWord
-# Set-PSReadLineKeyHandler -Chord 'Ctrl+RightArrow' -Function ForwardWord
-# Set-PSReadLineKeyHandler -Chord 'Ctrl+z' -Function Undo
-# Set-PSReadLineKeyHandler -Chord 'Ctrl+y' -Function Redo
 
 Set-PSReadLineOption -AddToHistoryHandler {
   param($line)
@@ -240,25 +170,3 @@ $scriptblock = {
   }
 }
 Register-ArgumentCompleter -Native -CommandName git, dotnet -ScriptBlock $scriptblock
-
-if (Get-Command zoxide -ErrorAction SilentlyContinue)
-{
-  Invoke-Expression (& { (zoxide init powershell | Out-String) })
-} else
-{
-  Write-Host "zoxide command not found. Attempting to install via winget..."
-  try
-  {
-    winget install -e --id ajeetdsouza.zoxide
-    Write-Host "zoxide installed successfully. Initializing..."
-    Invoke-Expression (& { (zoxide init powershell | Out-String) })
-  } catch
-  {
-    Write-Error "Failed to install zoxide. Error: $_"
-  }
-}
-
-Set-Alias -Name j -Value __zoxide_z -Option AllScope -Scope Global -Force
-Set-Alias -Name ji -Value __zoxide_zi -Option AllScope -Scope Global -Force
-Import-Module gsudoModule
-Invoke-Expression (&starship init powershell)

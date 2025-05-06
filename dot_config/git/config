@@ -1,8 +1,17 @@
 [user]
   name = GhoulBoii
   email = code.ksh@erine.email
-  signingkey = F443BDA92506073F
+  signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICUJFhRcryj8My7BaTI2vvzKHUvzT83fh6/y4UqYn7Q8"
+[gpg]
+  format = ssh
 [commit]
-  gpgsign = true
+	gpgsign = true
 [pull]
   rebase = false
+[gpg "ssh"]
+	allowedSignersFile = ~/.ssh/allowed_signers
+	program = C:/Windows/System32/OpenSSH/ssh-keygen.exe
+[tag]
+	gpgsign = true
+[core]
+	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe

@@ -12,15 +12,15 @@ CoordMode "Pixel", "Screen"
 
 ; Autostart
 homeDir := EnvGet("USERPROFILE")
-resizePath := homeDir "\.local\bin\resize.ahk"
-if !(PID := ProcessExist("resize.ahk"))
-  Run(resizePath, , "Hide")
+; resizePath := homeDir "\.local\bin\resize.ahk"
+; if !(PID := ProcessExist("resize.ahk"))
+;   Run(resizePath, , "Hide")
 if !(PID := ProcessExist("kanata.exe"))
   Run("kanata -c" homeDir "\.config\kanata\config.kbd", , "Hide")
 
 ; Launching Programs
-; #t::Run("wt -d " homedir)
-#t::Run("wezterm-gui")
+#t::Run("wt -d " homedir)
+; #t::Run("wezterm-gui")
 #+e::Run("explorer")
 
 
@@ -37,7 +37,7 @@ Komorebic(cmd) {
 #+q::ExitApp
 #+r::{
   Reload
-  Komorebic("reload")
+  Komorebic("reload-configuration")
 }
 
 ; Resizing Windows
@@ -81,3 +81,5 @@ handle_display_change(wParam, lParam, *)
     Komorebic("start")
     Komorebic("retile")
 }
+
+

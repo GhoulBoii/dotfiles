@@ -13,7 +13,7 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
   local is_windows_11 = tonumber(build) >= 22000
 
   --- Set Pwsh as the default on Windows
-  config.default_prog = { "nu" }
+  config.default_prog = { "pwsh" }
   table.insert(launch_menu, {
     label = 'Pwsh',
     args = { 'pwsh.exe', '-NoLogo' },
@@ -172,16 +172,41 @@ end)
 
 --- Default config settings
 config.scrollback_lines = 7000
-config.adjust_window_size_when_changing_font_size = false
+config.adjust_window_size_when_changing_font_size = true
 config.hide_tab_bar_if_only_one_tab = true
-config.window_decorations = "RESIZE"
-config.font = wezterm.font{family = "FiraCode Nerd Font"}
-config.warn_about_missing_glyphs = false
-config.window_background_opacity = 0.7
 config.launch_menu = launch_menu
 config.default_cursor_style = 'BlinkingBar'
 config.disable_default_key_bindings = true
 config.keys = keys
 config.mouse_bindings = mouse_bindings
+----------------------------------------------------------------------------------------------------
+
+config.default_prog = {"pwsh", "-NoLogo"}
+config.default_cwd = "~"
+config.max_fps = 144
+config.animation_fps = 144
+
+----------------------------------------------------------------------------------------------------
+
+config.window_close_confirmation = "NeverPrompt"
+config.window_decorations = "NONE | RESIZE"
+config.window_padding = {left = 0, right = 0, top = 0, bottom = 0}
+config.window_background_opacity = 0.7
+config.use_fancy_tab_bar = false
+config.tab_max_width = 100
+
+----------------------------------------------------------------------------------------------------
+
+config.font_size = 12
+config.freetype_load_target = "Light"
+config.warn_about_missing_glyphs = false
+config.font = wezterm.font
+{
+  family = "FiraCode Nerd Font",
+  weight = "DemiBold",
+  harfbuzz_features = {"calt=1", "clig=1", "liga=1"}
+}
+
+----------------------------------------------------------------------------------------------------
 
 return config

@@ -915,5 +915,5 @@ $env.config = {
     ]
 }
 
-source ~/.zoxide.nu
+# source ~/.zoxide.nu
 source ~/.cache/carapace/init.nu

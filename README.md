@@ -1,30 +1,20 @@
 <h1 align="center">Dotfiles</h1>
 <h3 align="center">Chezmoi-Managed System Configurations</h3>
 
-
-# 🔧 Usage
-
-To use these dotfiles, you'll need to have [chezmoi](https://www.chezmoi.io/) installed on your system. Once installed, you can follow the official chezmoi documentation to initialize and manage your dotfiles. Typically, this involves:
-
-1.  **Cloning the repository:**
-    ```bash
-    chezmoi init --apply [https://github.com/GhoulBoii/dotfiles](https://github.com/GhoulBoii/dotfiles)
-    ```
-2.  **Modifying configurations:**
-    Edit the files in the chezmoi source directory to personalize your setup.
-3.  **Applying changes:**
-    ```bash
-    chezmoi apply
-    ```
-
 ## 🖼️ Screenshots
+![Windows](https://github.com/user-attachments/assets/e245b34c-d25e-460e-b5e1-a9285c851e98)
 
+
+## 🔧 Usage
+
+This repository utilises [Chezmoi](https://www.chezmoi.io) to manage dotfiles for my cross-platform usage. To apply to your system, only a single command should be required:
+```bash
+chezmoi init --apply ghoulboii
+```
 
 ## 🛠️ Utilities
 
 ### Linux
-
-Here's a list of some of the key utilities configured in the Linux portion of these dotfiles:
 
 -   **Shell:** [Zsh](https://www.zsh.org/) - A powerful and customizable shell.
 -   **Terminal Multiplexer:** [tmux](https://github.com/tmux/tmux/wiki) - For efficient terminal management.
